@@ -12,7 +12,7 @@ import org.junit.Before;
  * @author froberge
  * @since Oct 25, 2016
  */
-public class LoginServiceTest {
+public class RegistrationServiceTest {
 
 	@Before
 	public void setUp() throws Exception {
