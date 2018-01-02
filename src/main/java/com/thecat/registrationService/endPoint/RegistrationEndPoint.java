@@ -22,7 +22,7 @@ public class RegistrationEndPoint {
 
 
     /**
-     * Responsible to login a user
+     * Responsible to register a user
      *
      * @param user {@link UserJson}
      * @return {@link Response}
@@ -32,6 +32,9 @@ public class RegistrationEndPoint {
     @Produces({MediaType.APPLICATION_JSON})
     public Response registrationPost(UserJson user) {    		
     	try {
+    		
+    		System.out.println( "registration service" );
+    		
     		UserJson u = RegistrationService.getInstance().findUser(user.getEmailAdr() , user.getPassword() );
     		
             return Response.ok()
