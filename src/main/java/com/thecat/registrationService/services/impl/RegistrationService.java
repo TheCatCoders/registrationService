@@ -18,25 +18,25 @@ import com.thecat.registrationService.entities.UserJson;
  * Implement the Registration Service
  *
  * @author froberge
- * @since Jan 01, 2017
+ * @since January 2017
  */
 public class RegistrationService {
 
-	private static RegistrationService loginService = null;
+	private static RegistrationService registerService = null;
 	
 	/**
-	 * Private constructor to prevent the creation of the LoginService
+	 * Private constructor to prevent the creation of the RegistrationService
 	 */
 	private RegistrationService(){
 		
 	}
 	
 	public static RegistrationService getInstance() {
-		if ( loginService == null ) {
-			loginService = new RegistrationService();
+		if ( registerService == null ) {
+			registerService = new RegistrationService();
 		}
 
-		return loginService;
+		return registerService;
 	}
 
 	/**
@@ -61,8 +61,6 @@ public class RegistrationService {
 			OutputStream os = conn.getOutputStream();
 			os.write(parseInput(emailAdress, password).getBytes());
 			os.flush();
-			
-			System.out.println( "Service Return Code : " + conn.getResponseCode() );
 			
 			if (conn.getResponseCode() != HttpURLConnection.HTTP_OK) {
 				throw new RuntimeException("Failed : HTTP error code : " + conn.getResponseCode());

@@ -12,10 +12,10 @@ import javax.ws.rs.core.Response;
 
 
 /**
- * Service use to Login into an application
+ * API use to Register a use to the System
  *
  * @author froberge
- * @since Oct 2016
+ * @since January 2017
  */
 @Path("/register")
 public class RegistrationEndPoint {
@@ -32,16 +32,12 @@ public class RegistrationEndPoint {
     @Produces({MediaType.APPLICATION_JSON})
     public Response registrationPost(UserJson user) {    		
     	try {
-    		
-    		System.out.println( "registration service" );
-    		
     		UserJson u = RegistrationService.getInstance().findUser(user.getEmailAdr() , user.getPassword() );
     		
             return Response.ok()
                     .entity(u)
                     .build();
     	} catch ( Exception e ) {
-    		System.out.println( e.getMessage() );
 	    	return Response.status(Response.Status.BAD_REQUEST)
 	                .entity( "User not found.  Please try Again" )
 	                .build();
