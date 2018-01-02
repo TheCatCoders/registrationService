@@ -47,11 +47,11 @@ public class RegistrationService {
 	 * @return {@link UserJson}
 	 * @throws
 	 */
-	public UserJson findUser(String emailAdress, String password) {
-		UserJson user = null;
+	public UserJson registerUser(UserJson userJson) {
+		UserJson outPut = null;
 		
 		try {
-			URL url = new URL( "http://dbservice-coffeshop.192.168.64.2.nip.io/DatabaseService/api/db/select" );
+			URL url = new URL( "http://dbservice-coffeshop.192.168.64.2.nip.io/DatabaseService/api/register" );
 			
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setDoOutput(true);
@@ -59,7 +59,7 @@ public class RegistrationService {
 			conn.setRequestProperty("Content-Type", "application/json");
 			
 			OutputStream os = conn.getOutputStream();
-			os.write(parseInput(emailAdress, password).getBytes());
+			os.write(parseInput(userJson).getBytes());
 			os.flush();
 			
 			if (conn.getResponseCode() != HttpURLConnection.HTTP_OK) {
@@ -67,7 +67,7 @@ public class RegistrationService {
 			}
 		
 			
-			user = parseOutput(new BufferedReader(new InputStreamReader((conn.getInputStream()))));
+			outPut = parseOutput(new BufferedReader(new InputStreamReader((conn.getInputStream()))));
 			conn.disconnect();
 			
 		  } catch (MalformedURLException e) {
@@ -77,28 +77,43 @@ public class RegistrationService {
 			e.printStackTrace();
 		  }
 		
-		return user;
+		return outPut;
 	}
 	
 	/**
 	 * Method that is responsible to create the service Input.
 	 * 
-	 * @param emailAdress {@link String}
-	 * @param password {@link String}
+	 * @param userJson {@link UserJson}
 	 * 
 	 * @return {@link String}
 	 */
-	private String parseInput(String emailAdress, String password) {
+	private String parseInput(UserJson user) {
 		StringBuffer sb = new StringBuffer();
 		sb.append( "{" );
 		sb.append( "\"emailAdr\":" );
 		sb.append( "\"" );
-		sb.append( emailAdress );
+		sb.append( user.getEmailAdr() );
 		sb.append( "\"" );
 		sb.append( "," );
+		sb.append( "\"age\":" );
+		sb.append( "\"" );
+		sb.append( user.getAge() );
+		sb.append( "\"" );
+		sb.append( "," );		
+
+		sb.append( "\"gender\":" );
+		sb.append( "\"" );
+		sb.append( user.getGender() );
+		sb.append( "\"" );
+		sb.append( "," );		
+		sb.append( "\"username\":" );
+		sb.append( "\"" );
+		sb.append( user.getUsername() );
+		sb.append( "\"" );
+		sb.append( "," );		
 		sb.append( "\"password\":" );
 		sb.append( "\"" );
-		sb.append(password);
+		sb.append(user.getPassword());
 		sb.append( "\"" );
 		sb.append( "}" );
 

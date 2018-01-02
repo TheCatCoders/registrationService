@@ -32,7 +32,11 @@ public class RegistrationEndPoint {
     @Produces({MediaType.APPLICATION_JSON})
     public Response registrationPost(UserJson user) {    		
     	try {
-    		UserJson u = RegistrationService.getInstance().findUser(user.getEmailAdr() , user.getPassword() );
+    		
+    		System.out.println( "user receive : " + user.toString() );
+    		
+    		// This should be replace by a call to the login service
+    		UserJson u = RegistrationService.getInstance().registerUser(user);
     		
             return Response.ok()
                     .entity(u)
