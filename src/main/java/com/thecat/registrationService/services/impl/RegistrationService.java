@@ -51,7 +51,7 @@ public class RegistrationService {
 		UserJson outPut = null;
 		
 		try {
-			URL url = new URL( "http://dbservice-coffeshop.192.168.64.2.nip.io/DatabaseService/api/register" );
+			URL url = new URL( "http://dbservice-coffeshop.192.168.64.2.nip.io/DatabaseService/api/db/register" );
 			
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setDoOutput(true);
