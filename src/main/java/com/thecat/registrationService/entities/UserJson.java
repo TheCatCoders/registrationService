@@ -87,10 +87,10 @@ public class UserJson {
     	
     	StringBuffer sb = new StringBuffer( "Information on the client: \n" );
     	
-    	sb.append("name [ " + this.username + "]\n");
-    	sb.append("gender [ " + this.gender + "]\n");
-    	sb.append("birthDate [ " + this.age + "]\n");
-    	sb.append("email [ " + this.emailAdr + "]\n");
+    	sb.append("name [" + this.username + "]\n");
+    	sb.append("gender [" + this.gender + "]\n");
+    	sb.append("birthDate [" + this.age + "]\n");
+    	sb.append("email [" + this.emailAdr + "]\n");
     	
     	return sb.toString();
      }

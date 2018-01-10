@@ -32,15 +32,10 @@ public class RegistrationEndPoint {
     @Produces({MediaType.APPLICATION_JSON})
     public Response registrationPost(UserJson user) {    		
     	try {
-    		
-    		System.out.println( "user receive : " + user.toString() );
-    		
     		// This should be replace by a call to the login service
-    		UserJson u = RegistrationService.getInstance().registerUser(user);
+    		RegistrationService.getInstance().registerUser(user);
     		
-            return Response.ok()
-                    .entity(u)
-                    .build();
+        return Response.ok().build();
     	} catch ( Exception e ) {
 	    	return Response.status(Response.Status.BAD_REQUEST)
 	                .entity( "User not found.  Please try Again" )
