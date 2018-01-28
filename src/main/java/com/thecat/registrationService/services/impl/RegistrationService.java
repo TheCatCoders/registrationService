@@ -40,7 +40,7 @@ public class RegistrationService {
 
 	/**
 	 * Method that will allow us to connect to the database and find a given user.  
-	 * Nothing is return, if their is and error the error code is throwned
+	 * Nothing is return, if their is and error the error code is thrown
 	 * 
 	 * @param emailAddress {@link String}
 	 * @param password {@link String} 
@@ -48,7 +48,7 @@ public class RegistrationService {
 	 */
 	public void registerUser(UserJson userJson) {		
 		try {
-			URL url = new URL( "http://dbservice-coffeshop.192.168.64.2.nip.io/DatabaseService/api/db/register" );
+			URL url = new URL( "http://dbservice:8080/DatabaseService/api/db/register" );
 			
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setDoOutput(true);
