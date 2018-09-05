@@ -48,7 +48,7 @@ public class RegistrationService {
 	 */
 	public void registerUser(User userJson) {
 		try {
-			URL url = new URL( "hhttp://clientservice:8080/ClientService/api/clients/create" );
+			URL url = new URL( "http://clientservice:8080/ClientService/api/clients/create" );
 			
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setDoOutput(true);
