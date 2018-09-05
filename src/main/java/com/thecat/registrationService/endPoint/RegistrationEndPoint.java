@@ -1,6 +1,6 @@
 package com.thecat.registrationService.endPoint;
 
-import com.thecat.registrationService.entities.UserJson;
+import com.thecat.registrationService.entities.User;
 import com.thecat.registrationService.services.impl.RegistrationService;
 
 import javax.ws.rs.Consumes;
@@ -24,13 +24,13 @@ public class RegistrationEndPoint {
     /**
      * Responsible to register a user
      *
-     * @param user {@link UserJson}
+     * @param user {@link User}
      * @return {@link Response}
      */
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public Response registrationPost(UserJson user) {    		
+    public Response registrationPost(User user) {
     	try {
     		// This should be replace by a call to the login service
     		RegistrationService.getInstance().registerUser(user);

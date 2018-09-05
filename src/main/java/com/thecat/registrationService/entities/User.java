@@ -1,10 +1,6 @@
 package com.thecat.registrationService.entities;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
-
-@XmlRootElement
-public class UserJson {
+public class User {
 
 	private String username;
 	private String password;

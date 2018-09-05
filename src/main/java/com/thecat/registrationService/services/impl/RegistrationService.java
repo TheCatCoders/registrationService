@@ -11,7 +11,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 
-import com.thecat.registrationService.entities.UserJson;
+import com.thecat.registrationService.entities.User;
 
 /**
  * Implement the Registration Service
@@ -46,7 +46,7 @@ public class RegistrationService {
 	 * @param password {@link String} 
 	 * @throws
 	 */
-	public void registerUser(UserJson userJson) {		
+	public void registerUser(User userJson) {
 		try {
 			URL url = new URL( "http://dbservice:8080/DatabaseService/api/db/users/register" );
 			
@@ -76,11 +76,11 @@ public class RegistrationService {
 	/**
 	 * Method that is responsible to create the service Input.
 	 * 
-	 * @param userJson {@link UserJson}
+	 * @param userJson {@link User}
 	 * 
 	 * @return {@link String}
 	 */
-	private String parseInput(UserJson user) {
+	private String parseInput(User user) {
 		StringBuffer sb = new StringBuffer();
 		sb.append( "{" );
 		sb.append( "\"emailAdr\":" );
