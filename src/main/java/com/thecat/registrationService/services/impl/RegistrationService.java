@@ -26,7 +26,7 @@ public class RegistrationService {
 
 	/**
 	 *
-	 * @return RegistrationService
+	 * @return {@link RegistrationService}
 	 */
 	public static RegistrationService getInstance() {
 		if ( registerService == null ) {
