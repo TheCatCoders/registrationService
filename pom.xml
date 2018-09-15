@@ -6,28 +6,37 @@
     <artifactId>RegistrationService</artifactId>
     <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
-    <name>RegistrationService</name>
+    <name>registrationService</name>
     <description>Service that manage the registration to an application</description>
 
     <properties>
         <resteasy.version>3.1.4.Final</resteasy.version>
+        <jdk.version>1.8</jdk.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <dependencies>
         <!-- section for libraries needed to run project -->
-            <dependency>
-                <groupId>org.jboss.resteasy</groupId>
-                <artifactId>resteasy-servlet-initializer</artifactId>
-                <version>${resteasy.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jboss.resteasy</groupId>
-                <artifactId>resteasy-client</artifactId>
-                <version>${resteasy.version}</version>
-            </dependency>
+        <dependency>
+            <groupId>com.github.jitpack</groupId>
+            <artifactId>maven-simple</artifactId>
+            <version>0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.TheCatCoders</groupId>
+            <artifactId>serviceConnection</artifactId>
+            <version>v0.0.0.1-RC1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-servlet-initializer</artifactId>
+            <version>${resteasy.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-client</artifactId>
+            <version>${resteasy.version}</version>
+        </dependency>
         <dependency>
             <groupId>javax.ws.rs</groupId>
             <artifactId>jsr311-api</artifactId>
@@ -56,6 +65,17 @@
     </dependencies>
 
     <build>
-        <finalName>RegistrationService</finalName>
+        <finalName>registrationService</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 </project>

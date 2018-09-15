@@ -30,7 +30,7 @@ public class RegistrationEndPoint {
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
-    public Response registrationPost(User user) {
+    public Response register(User user) {
     	try {
     		// This should be replace by a call to the login service
     		RegistrationService.getInstance().registerUser(user);

@@ -12,6 +12,7 @@ import java.net.URL;
 
 
 import com.thecat.registrationService.entities.User;
+import com.thecat.service.impl.ServiceConnector;
 
 /**
  * Implement the Registration Service
@@ -42,35 +43,16 @@ public class RegistrationService {
 	 * Method that will allow us to connect to the database and find a given user.  
 	 * Nothing is return, if their is and error the error code is thrown
 	 * 
-	 * @param emailAddress {@link String}
-	 * @param password {@link String} 
-	 * @throws
+	 * @param userJson {@link String}
 	 */
 	public void registerUser(User userJson) {
+		String urlSting = "http://clientservice:8080/ClientService/api/clients/create";
+
 		try {
-			URL url = new URL( "http://clientservice:8080/ClientService/api/clients/create" );
-			
-			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-			conn.setDoOutput(true);
-			conn.setRequestMethod("POST");
-			conn.setRequestProperty("Content-Type", "application/json");
-			
-			OutputStream os = conn.getOutputStream();
-			os.write(parseInput(userJson).getBytes());
-			os.flush();
-			
-			if (conn.getResponseCode() != HttpURLConnection.HTTP_OK) {
-				throw new RuntimeException("Failed : HTTP error code : " + conn.getResponseCode());
-			}
-			
-			conn.disconnect();
-			
-		  } catch (MalformedURLException e) {
-			e.printStackTrace();
-		
-		  } catch (IOException e) {
-			e.printStackTrace();
-		  }
+			ServiceConnector(url, parseInput(UserJson));
+		}catch (IOException ioe) {
+			system.out.println(ioe.printStackTrace());
+		}
 	}
 	
 	/**
