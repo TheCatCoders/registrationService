@@ -5,14 +5,9 @@ package com.thecat.registrationService.services.impl;
 
 
 import java.io.IOException;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 
-
+import com.thecat.helper.RESTConnector;
 import com.thecat.registrationService.entities.User;
-import com.thecat.service.impl.ServiceConnector;
 
 /**
  * Implement the Registration Service
@@ -27,10 +22,12 @@ public class RegistrationService {
 	/**
 	 * Private constructor to prevent the creation of the RegistrationService
 	 */
-	private RegistrationService(){
-		
-	}
-	
+	private RegistrationService(){}
+
+	/**
+	 *
+	 * @return RegistrationService
+	 */
 	public static RegistrationService getInstance() {
 		if ( registerService == null ) {
 			registerService = new RegistrationService();
@@ -46,24 +43,24 @@ public class RegistrationService {
 	 * @param userJson {@link String}
 	 */
 	public void registerUser(User userJson) {
-		String urlSting = "http://clientservice:8080/ClientService/api/clients/create";
+		String url = "http://clientservice:8080/ClientService/api/clients/create";
 
 		try {
-			ServiceConnector(url, parseInput(UserJson));
+			RESTConnector.connectPost(url, parseInput(userJson));
 		}catch (IOException ioe) {
-			system.out.println(ioe.printStackTrace());
-		}
+			ioe.printStackTrace();
+	}
 	}
 	
 	/**
 	 * Method that is responsible to create the service Input.
 	 * 
-	 * @param userJson {@link User}
+	 * @param user {@link User}
 	 * 
 	 * @return {@link String}
 	 */
 	private String parseInput(User user) {
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		sb.append( "{" );
 		sb.append( "\"emailAdr\":" );
 		sb.append( "\"" );

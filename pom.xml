@@ -16,16 +16,10 @@
     </properties>
 
     <dependencies>
-        <!-- section for libraries needed to run project -->
-        <dependency>
-            <groupId>com.github.jitpack</groupId>
-            <artifactId>maven-simple</artifactId>
-            <version>0.1</version>
-        </dependency>
         <dependency>
             <groupId>com.github.TheCatCoders</groupId>
-            <artifactId>serviceConnection</artifactId>
-            <version>v0.0.0.1-RC1</version>
+            <artifactId>connectionHelper</artifactId>
+            <version>v0.0.0.1-RC2</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
@@ -42,19 +36,16 @@
             <artifactId>jsr311-api</artifactId>
             <version>1.1.1</version>
         </dependency>
-
 		<dependency>
 		    <groupId>org.json</groupId>
 		    <artifactId>json</artifactId>
 		    <version>20151123</version>
 		</dependency>
-
 		<dependency>
 		    <groupId>javax.servlet</groupId>
 		    <artifactId>javax.servlet-api</artifactId>
 		    <version>3.1.0</version>
 		</dependency>
-
         <!--  This section is reserve for libraries needed for test -->
         <dependency>
             <groupId>junit</groupId>
