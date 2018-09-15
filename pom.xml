@@ -8,13 +8,21 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>registrationService</name>
     <description>Service that manage the registration to an application</description>
-
     <properties>
         <resteasy.version>3.1.4.Final</resteasy.version>
         <jdk.version>1.8</jdk.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+        <repository>
+            <id>maven</id>
+            <url>https://repo1.maven.org/maven2/</url>
+        </repository>
+    </repositories>
     <dependencies>
         <dependency>
             <groupId>com.github.TheCatCoders</groupId>
