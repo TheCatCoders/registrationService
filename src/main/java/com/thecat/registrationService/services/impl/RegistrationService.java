@@ -43,7 +43,7 @@ public class RegistrationService {
 	 * @param userJson {@link String}
 	 */
 	public void registerUser(User userJson) {
-		String url = "http://clientservice:8080/ClientService/api/clients/create";
+		String url = "http://clientservice:8080/clientService/api/client/create";
 
 		try {
 			RESTConnector.connectPost(url, parseInput(userJson));
